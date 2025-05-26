@@ -1,0 +1,149 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const heading = document.getElementById('main-heading');
+  const inputs = document.querySelectorAll('input');
+  const clock = document.getElementById('clock');
+  const greeting = document.getElementById('greeting');
+  const backToTopBtn = document.getElementById('back-to-top');
+  const loginForm = document.getElementById('login-form');
+
+  // YouTube video IDs for random song selection
+  const youtubeSongs = [
+    'dQw4w9WgXcQ', // Rick Astley - Never Gonna Give You Up (classic meme)
+    '3GwjfUFyY6M', // Pharrell Williams - Happy
+    'Zi_XLOBDo_Y', // Michael Jackson - Billie Jean
+    'kJQP7kiw5Fk', // Luis Fonsi - Despacito
+    'RgKAFK5djSk', // Wiz Khalifa - See You Again
+    'L_jWHffIx5E', // Smash Mouth - All Star
+  ];
+
+  const player = document.getElementById('youtube-player');
+  const playSongBtn = document.getElementById('play-random-song');
+
+  // Typewriter effect for heading
+  const text = heading.textContent;
+  heading.textContent = '';
+  let index = 0;
+  function typeWriter() {
+    if (index < text.length) {
+      heading.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+  typeWriter();
+
+  // Theme toggle with flicker effect
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    heading.classList.add('flicker');
+    setTimeout(() => heading.classList.remove('flicker'), 1000);
+    playClickSound();
+  });
+
+  // Input live validation example for email
+  inputs.forEach((input) => {
+    input.addEventListener('input', () => {
+      if (input.type === 'email') {
+        const valid = input.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+        if (valid) {
+          input.style.borderColor = '#00ffcc';
+          input.style.boxShadow = '0 0 10px #00ffcc, 0 0 20px #00ffcc';
+          input.classList.add('input-focus-glow');
+        } else {
+          input.style.borderColor = '#ff0044';
+          input.style.boxShadow = '0 0 10px #ff0044, 0 0 20px #ff0044';
+          input.classList.remove('input-focus-glow');
+        }
+      }
+    });
+  });
+
+  // Button hover sound
+  document.querySelectorAll('button').forEach((btn) => {
+    btn.addEventListener('mouseenter', () => playHoverSound());
+  });
+
+  // Scroll fade-in animation
+  const faders = document.querySelectorAll('.fade-in');
+
+  function checkFade() {
+    faders.forEach((fader) => {
+      const rect = fader.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        fader.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', checkFade);
+  checkFade();
+
+  // Real-time neon clock
+  function updateClock() {
+    const now = new Date();
+    const hrs = now.getHours().toString().padStart(2, '0');
+    const mins = now.getMinutes().toString().padStart(2, '0');
+    const secs = now.getSeconds().toString().padStart(2, '0');
+    clock.textContent = `${hrs}:${mins}:${secs}`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Dynamic greeting based on time
+  function updateGreeting() {
+    const hour = new Date().getHours();
+    let greet = 'Hello Gamer!';
+    if (hour >= 5 && hour < 12) greet = 'Good Morning, Gamer!';
+    else if (hour >= 12 && hour < 17) greet = 'Good Afternoon, Gamer!';
+    else if (hour >= 17 && hour < 21) greet = 'Good Evening, Gamer!';
+    else greet = 'Good Night, Gamer!';
+    greeting.textContent = greet;
+  }
+  updateGreeting();
+
+  // Back to top button visibility and scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      backToTopBtn.style.display = 'block';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Play random YouTube song
+  playSongBtn.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * youtubeSongs.length);
+    const videoId = youtubeSongs[randomIndex];
+    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  });
+
+  // Sound effects
+  const clickSound = new Audio('https://freesound.org/data/previews/522/522614_3248244-lq.mp3');
+  const hoverSound = new Audio('https://freesound.org/data/previews/256/256113_4486188-lq.mp3');
+
+  function playClickSound() {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  }
+  function playHoverSound() {
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+  }
+
+  // Confetti effect on form submit
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // prevent actual submission for demo
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+    alert('Form Submitted Successfully! 🎉');
+    loginForm.reset();
+  });
+});
