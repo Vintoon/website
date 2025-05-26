@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vin Toon Gaming X</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <button id="theme-toggle-btn" class="btn">Toggle Neon Light Theme</button>
+
+  <h1 class="fade-in">Welcome To The Vin Toon Gaming X Website</h1>
+
+  <img
+    class="fade-in"
+    src="https://via.placeholder.com/600x200?text=Gaming+Banner"
+    alt="Gaming Banner"
+  />
+
+  <p class="fade-in">
+    Welcome to Vin Toon Gaming X – Where Play Meets Power!<br />
+    Step into the ultimate gaming universe packed with action, adventure,
+    and cutting-edge content.<br />
+    Whether you're a casual player or a hardcore gamer, Vin Toon Gaming X
+    brings you the latest game reviews, epic <br />
+    highlights, and exclusive tips to level up your experience. Let the game
+    begin!
+  </p>
+
+  <button
+    class="btn fade-in"
+    onclick="window.location='https://youtube.com/@vintoon649?si=U5b_mcJnEmlcfOvm'"
+  >
+    My YouTube Channel
+  </button>
+  <button
+    class="btn fade-in"
+    onclick="window.location='https://instagram.com/yourusername'"
+  >
+    My Instagram Profile
+  </button>
+
+  <p class="fade-in">On the above button, please subscribe</p>
+
+  <h2 class="fade-in">Login</h2>
+  <form class="fade-in">
+    First name:<br />
+    <input type="text" name="firstname" placeholder="First Name" /><br />
+    Second name:<br />
+    <input type="text" name="lastname" placeholder="Second Name" /><br />
+    Email:<br />
+    <input type="email" name="email" placeholder="Email Address" /><br />
+    Password:<br />
+    <input type="password" name="password" placeholder="Password" /><br />
+    <input type="submit" class="submit-input" value="Submit" />
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vin Toon Gaming X</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <button id="theme-toggle-btn" class="btn">Toggle Neon Light Theme</button>
+
+  <div id="clock" class="fade-in neon-glow"></div>
+  <h1 class="fade-in" id="main-heading">Welcome To The Vin Toon Gaming X Website</h1>
+
+  <p id="greeting" class="fade-in"></p>
+
+  <img
+    class="fade-in"
+    src="https://via.placeholder.com/600x200?text=Gaming+Banner"
+    alt="Gaming Banner"
+  />
+
+  <p class="fade-in">
+    Welcome to Vin Toon Gaming X – Where Play Meets Power!<br />
+    Step into the ultimate gaming universe packed with action, adventure,
+    and cutting-edge content.<br />
+    Whether you're a casual player or a hardcore gamer, Vin Toon Gaming X
+    brings you the latest game reviews, epic <br />
+    highlights, and exclusive tips to level up your experience. Let the game
+    begin!
+  </p>
+
+  <button
+    class="btn fade-in"
+    onclick="window.location='https://youtube.com/@vintoon649?si=U5b_mcJnEmlcfOvm'"
+  >
+    My YouTube Channel
+  </button>
+  <button
+    class="btn fade-in"
+    onclick="window.location='https://instagram.com/yourusername'"
+  >
+    My Instagram Profile
+  </button>
+
+  <p class="fade-in">On the above button, please subscribe</p>
+
+  <h2 class="fade-in">Login</h2>
+  <form class="fade-in" id="login-form">
+    First name:<br />
+    <input type="text" name="firstname" placeholder="First Name" required /><br />
+    Second name:<br />
+    <input type="text" name="lastname" placeholder="Second Name" required /><br />
+    Email:<br />
+    <input type="email" name="email" placeholder="Email Address" required /><br />
+    Password:<br />
+    <input type="password" name="password" placeholder="Password" required /><br />
+    <input type="submit" class="submit-input" value="Submit" />
+  </form>
+
+  <div id="music-player" class="fade-in">
+    <h3>🎵 Random YouTube Music Player</h3>
+    <iframe
+      id="youtube-player"
+      width="320"
+      height="180"
+      src=""
+      title="YouTube Music Player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <br />
+    <button id="play-random-song" class="btn">Play Random Song</button>
+  </div>
+
+  <button id="back-to-top" title="Back to Top">⬆️</button>
+
+  <!-- Include confetti lib -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
